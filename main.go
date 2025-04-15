@@ -1,3 +1,8 @@
+/*
+ * I was initially planning on adding program version checks, then I decided no to inorder to make the command as fast
+ * as possible. Which might have been a stupid idea
+ */
+
 package main
 
 import (
@@ -9,9 +14,10 @@ import (
 )
 
 func main() {
-	err := clipboard.Init()
-	if err != nil {
-		log.Fatal(err)
+	error_ := clipboard.Init()
+
+	if error_ != nil {
+		log.Fatal(error_)
 	}
 
 	textArr := os.Args[1:]
@@ -32,11 +38,13 @@ func main() {
 
 	for i := 0; i < len(text); i++ {
 		text_ := string(text[i])
+
 		if caps {
 			convertedText += strings.ToUpper(text_)
 		} else {
 			convertedText += strings.ToLower(text_)
 		}
+
 		caps = !caps
 	}
 
