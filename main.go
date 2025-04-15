@@ -21,6 +21,10 @@ func main() {
 		text += string(textArr[i]) + " "
 	}
 
+	if len(text) == 0 {
+		log.Fatal("No text after the command!")
+	}
+
 	text = text[:len(text)-1]
 
 	convertedText := ""
