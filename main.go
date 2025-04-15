@@ -34,7 +34,7 @@ func main() {
 	text = text[:len(text)-1]
 
 	convertedText := ""
-	caps := true
+	caps := false
 
 	for i := 0; i < len(text); i++ {
 		text_ := text[i]
