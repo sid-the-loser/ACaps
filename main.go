@@ -45,11 +45,11 @@ func main() {
 			} else {
 				convertedText += strings.ToLower(string(text_))
 			}
+			
+			caps = !caps
 		} else {
 			convertedText += string(text_)
 		}
-
-		caps = !caps
 	}
 
 	clipboard.Write(clipboard.FmtText, []byte(convertedText))
