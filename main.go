@@ -37,12 +37,16 @@ func main() {
 	caps := true
 
 	for i := 0; i < len(text); i++ {
-		text_ := string(text[i])
+		text_ := text[i]
 
-		if caps {
-			convertedText += strings.ToUpper(text_)
+		if text_ >= 'A' && text_ <= 'Z' || text_ >= 'a' && text_ <= 'z' {
+			if caps {
+				convertedText += strings.ToUpper(string(text_))
+			} else {
+				convertedText += strings.ToLower(string(text_))
+			}
 		} else {
-			convertedText += strings.ToLower(text_)
+			convertedText += string(text_)
 		}
 
 		caps = !caps
