@@ -54,5 +54,5 @@ func main() {
 
 	// clipboard.Write(clipboard.FmtText, []byte(convertedText))
 	fmt.Println(convertedText)
-	fmt.Println("Alternated the case and copied to clipboard!")
+	// fmt.Println("Alternated the case and copied to clipboard!")
 }
