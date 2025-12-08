@@ -7,18 +7,18 @@ package main
 
 import (
 	"fmt"
-	"golang.design/x/clipboard"
+	// "golang.design/x/clipboard"
 	"log"
 	"os"
 	"strings"
 )
 
 func main() {
-	error_ := clipboard.Init()
+	// error_ := clipboard.Init()
 
-	if error_ != nil {
-		log.Fatal(error_)
-	}
+	// if error_ != nil {
+	// 	log.Fatal(error_)
+	// }
 
 	textArr := os.Args[1:]
 	text := ""
@@ -52,7 +52,7 @@ func main() {
 		}
 	}
 
-	clipboard.Write(clipboard.FmtText, []byte(convertedText))
+	// clipboard.Write(clipboard.FmtText, []byte(convertedText))
 	fmt.Println(convertedText)
 	fmt.Println("Alternated the case and copied to clipboard!")
 }
