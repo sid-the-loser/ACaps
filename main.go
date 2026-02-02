@@ -6,19 +6,22 @@
 package main
 
 import (
-	"fmt"
-	// "golang.design/x/clipboard"
-	"log"
 	"os"
 	"strings"
+	"time"
+
+	"golang.design/x/clipboard"
 )
 
 func main() {
-	// error_ := clipboard.Init()
+	clipboardWorks := true
 
-	// if error_ != nil {
-	// 	log.Fatal(error_)
-	// }
+	err := clipboard.Init()
+
+	if err != nil {
+		clipboardWorks = false
+		println("Clipboard init failed.")
+	}
 
 	textArr := os.Args[1:]
 	text := ""
@@ -28,7 +31,7 @@ func main() {
 	}
 
 	if len(text) == 0 {
-		log.Fatal("No text after the command!")
+		panic("No text after the command!")
 	}
 
 	text = text[:len(text)-1]
@@ -52,7 +55,12 @@ func main() {
 		}
 	}
 
-	// clipboard.Write(clipboard.FmtText, []byte(convertedText))
-	fmt.Println(convertedText)
-	// fmt.Println("Alternated the case and copied to clipboard!")
+	println(convertedText)
+
+	if clipboardWorks {
+		println("Waiting for a second so it copies to your clipboard...")
+		clipboard.Write(clipboard.FmtText, []byte(convertedText))
+		time.Sleep(1 * time.Second)
+		println("Copied to clipboard!")
+	}
 }
