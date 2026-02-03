@@ -1,6 +1,7 @@
 /*
- * I was initially planning on adding program version checks, then I decided no to inorder to make the command as fast
- * as possible. Which might have been a stupid idea
+ * I was initially planning on adding program version checks, then I decided no
+ * to in-order to make the command as fast as possible. Which might have been a
+ * stupid idea
  */
 
 package main
@@ -58,9 +59,9 @@ func main() {
 	println(convertedText)
 
 	if clipboardWorks {
-		println("Waiting for a second so it copies to your clipboard...")
 		clipboard.Write(clipboard.FmtText, []byte(convertedText))
-		time.Sleep(1 * time.Second)
+		println("Waiting for 50 milliseconds so it copies to your clipboard...")
+		time.Sleep(50 * time.Millisecond)
 		println("Copied to clipboard!")
 	}
 }
